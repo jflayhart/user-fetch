@@ -29,7 +29,7 @@ const Logo = styled(Image)`
 
 const IndexPage = (props: Props) => (
   <Layout title="Frontend Take-Home Exercise">
-    <Logo src="/assets/logo.svg" width="200" height="200" />
+    <Logo src="/assets/logo.png" width="200" height="200" />
     <UserForm data={props.formData} />
   </Layout>
 );

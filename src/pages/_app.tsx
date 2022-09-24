@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Welcome</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#ffa900" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link
           rel="apple-touch-icon"
