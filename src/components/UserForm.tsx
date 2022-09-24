@@ -1,6 +1,7 @@
 import { FormData } from "../types";
 import styled from "styled-components";
 import { postFormData } from "../services/postFormData";
+import Router from "next/router";
 
 type Props = {
   data: FormData;
@@ -16,14 +17,14 @@ const Input = styled.input`
   background: transparent;
   outline: none;
   border: 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.white};
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.white};
   width: 100%;
   font-size: 1rem;
 
   :focus {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   }
 `;
 
@@ -67,7 +68,9 @@ const UserForm = ({ data }: Props) => {
       state: e.target.states.value,
       occupation: e.target.occupations.value,
     };
-    postFormData(payload);
+    postFormData(payload).then((res) => {
+      if (res.ok) Router.push(`/welcome?name=${payload.name}`)
+    });
   }
 
   return (
