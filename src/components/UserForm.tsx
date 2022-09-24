@@ -1,5 +1,6 @@
 import { FormData } from "../types";
 import styled from "styled-components";
+import { postFormData } from "../services/postFormData";
 
 type Props = {
   data: FormData;
@@ -35,7 +36,7 @@ const Label = styled.label`
 const Select = styled.select`
   width: 100%;
   background: transparent;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   height: 2rem;
   font-size: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.white};
@@ -66,8 +67,7 @@ const UserForm = ({ data }: Props) => {
       state: e.target.states.value,
       occupation: e.target.occupations.value,
     };
-    // TODO send payload
-    console.log("TODO", payload);
+    postFormData(payload);
   }
 
   return (
