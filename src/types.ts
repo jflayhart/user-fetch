@@ -1,4 +1,4 @@
 export type FormData = {
-    states: Array<{name: string, abbreviation: string}>
-    occupations: string[]
-}
+  states: Array<{ name: string; abbreviation: string }>;
+  occupations: string[];
+};

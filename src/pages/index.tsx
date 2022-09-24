@@ -1,4 +1,4 @@
-import { GetStaticProps} from 'next'
+import { GetStaticProps } from "next";
 import { API_FORM_URL } from "../constants";
 import { FormData } from "../types";
 import Layout from "../components/Layout";
@@ -17,15 +17,15 @@ export const getStaticProps: GetStaticProps = async () => {
     // re-generate the page every hour if form data changes
     revalidate: 3600,
   };
-}
+};
 
 type Props = {
-  formData: FormData
-}
+  formData: FormData;
+};
 
 const Logo = styled(Image)`
   padding-bottom: 2rem !important;
-`
+`;
 
 const IndexPage = (props: Props) => (
   <Layout title="Frontend Take-Home Exercise">
