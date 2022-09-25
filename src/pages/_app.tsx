@@ -1,17 +1,9 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider, DefaultTheme } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../components/globalStyles";
 import Head from "next/head";
 import React from "react";
-
-const theme: DefaultTheme = {
-  colors: {
-    primary: "#300d38",
-    secondary: "#ffa900",
-    error: "#dc3545",
-    white: "#fff",
-  },
-};
+import { defaultTheme } from "../theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -59,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/assets/favicon/icon-512x512.png"
         />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>

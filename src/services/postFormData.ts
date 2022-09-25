@@ -8,6 +8,7 @@ type FormPayload = {
   occupation: string;
 };
 
+// TODO error handling?
 export const postFormData = (payload: FormPayload) =>
   fetch(API_FORM_URL, {
     method: "POST",

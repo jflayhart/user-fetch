@@ -1,7 +1,8 @@
 import { FormData } from "../types";
 import styled from "styled-components";
 import { postFormData } from "../services/postFormData";
-import Router from "next/router";
+import { useRouter } from "next/router";
+import { useCallback } from "react";
 
 type Props = {
   data: FormData;
@@ -59,19 +60,22 @@ const Button = styled.button`
 `;
 
 const UserForm = ({ data }: Props) => {
-  function handleSubmit(e: any) {
+  const router = useRouter();
+  const handleSubmit = useCallback((e: any) => {
     e.preventDefault();
+    const { name, email, password, states, occupations } = e.target.elements;
     const payload = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
-      state: e.target.states.value,
-      occupation: e.target.occupations.value,
+      name: name.value,
+      email: email.value,
+      password: password.value,
+      state: states.value,
+      occupation: occupations.value,
     };
+
     postFormData(payload).then((res) => {
-      if (res.ok) Router.push(`/welcome?name=${payload.name}`)
+      if (res.ok) router.push(`/welcome?name=${payload.name}`);
     });
-  }
+  }, [router]);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -98,7 +102,12 @@ const UserForm = ({ data }: Props) => {
       </Select>
 
       <Label htmlFor="occupations">Occupation</Label>
-      <Input id="occupations" list="occupation-list" required aria-label="occupations" />
+      <Input
+        id="occupations"
+        list="occupation-list"
+        required
+        aria-label="occupation"
+      />
       <datalist id="occupation-list">
         {data.occupations.map((occ, i) => (
           <option key={i} id={occ} value={occ}>
