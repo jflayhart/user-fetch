@@ -76,16 +76,16 @@ const UserForm = ({ data }: Props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label htmlFor="name">Name</Label>
-      <Input id="name" name="name" type="text" required />
+      <Input id="name" name="name" type="text" required aria-label="name" />
 
       <Label htmlFor="email">Email</Label>
-      <Input id="email" name="email" type="email" required />
+      <Input id="email" name="email" type="email" required aria-label="email" />
 
-      <Label htmlFor="email">Password</Label>
-      <Input id="password" type="password" required />
+      <Label htmlFor="password">Password</Label>
+      <Input id="password" type="password" required aria-label="password" />
 
-      <Label htmlFor="email">State</Label>
-      <Select id="states" required>
+      <Label htmlFor="state">State</Label>
+      <Select id="states" required aria-label="state">
         {data.states.map((state) => (
           <option
             key={state.abbreviation}
@@ -97,8 +97,8 @@ const UserForm = ({ data }: Props) => {
         ))}
       </Select>
 
-      <Label htmlFor="email">Occupation</Label>
-      <Input id="occupations" list="occupation-list" required />
+      <Label htmlFor="occupations">Occupation</Label>
+      <Input id="occupations" list="occupation-list" required aria-label="occupations" />
       <datalist id="occupation-list">
         {data.occupations.map((occ, i) => (
           <option key={i} id={occ} value={occ}>
