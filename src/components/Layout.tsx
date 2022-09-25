@@ -5,6 +5,7 @@ import styled from "styled-components";
 type Props = {
   children?: ReactNode;
   title?: string;
+  id?: string;
 };
 
 const Main = styled.main`
@@ -18,12 +19,16 @@ const Main = styled.main`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-const Layout = ({ children, title = "This is the default title" }: Props) => (
+const Layout = ({
+  id,
+  children,
+  title = "This is the default title",
+}: Props) => (
   <>
     <Head>
       <title>{title}</title>
     </Head>
-    <Main>{children}</Main>
+    <Main id={id}>{children}</Main>
   </>
 );
 

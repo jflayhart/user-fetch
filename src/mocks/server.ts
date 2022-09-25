@@ -10,4 +10,4 @@ export const server = setupServer(
   rest.post(API_FORM_URL, (req, res, ctx) => {
     return res(ctx.status(200));
   })
-)
+);

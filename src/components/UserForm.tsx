@@ -61,21 +61,24 @@ const Button = styled.button`
 
 const UserForm = ({ data }: Props) => {
   const router = useRouter();
-  const handleSubmit = useCallback((e: any) => {
-    e.preventDefault();
-    const { name, email, password, states, occupations } = e.target.elements;
-    const payload = {
-      name: name.value,
-      email: email.value,
-      password: password.value,
-      state: states.value,
-      occupation: occupations.value,
-    };
+  const handleSubmit = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      const { name, email, password, states, occupations } = e.target.elements;
+      const payload = {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+        state: states.value,
+        occupation: occupations.value,
+      };
 
-    postFormData(payload).then((res) => {
-      if (res.ok) router.push(`/welcome?name=${payload.name}`);
-    });
-  }, [router]);
+      postFormData(payload).then((res) => {
+        if (res.ok) router.push(`/welcome?name=${payload.name}`);
+      });
+    },
+    [router]
+  );
 
   return (
     <Form onSubmit={handleSubmit}>
