@@ -25,6 +25,7 @@ const Logo = styled(Image)`
   padding-bottom: 2rem !important;
 `;
 
+// TODO ErrorBoundary
 const IndexPage = (props: Props) => (
   <Layout title="Sign up">
     <Logo

@@ -2,6 +2,8 @@ import { GetStaticProps } from "next";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+// @ts-ignore this is valid
+import ConfettiGenerator from "confetti-js";
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -14,7 +16,6 @@ const WelcomePage = () => {
   const name = query.name || "";
 
   useEffect(() => {
-    const ConfettiGenerator = require("confetti-js")
     const confettiSettings = { target: "confetti-canvas" };
     const confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
