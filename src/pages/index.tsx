@@ -29,9 +29,9 @@ const Logo = styled(Image)`
 const IndexPage = (props: Props) => (
   <Layout title="Sign up">
     <Logo
-      src="/assets/logo.png"
-      width="235"
-      height="222"
+      src="/assets/logo.svg"
+      width="200"
+      height="200"
       alt="fetch dog logo"
     />
     <UserForm data={props.formData} />

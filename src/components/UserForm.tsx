@@ -9,34 +9,34 @@ type Props = {
 };
 
 const Form = styled.form`
-  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  width: 100%;
   padding: 0 1rem;
 `;
 
 const Input = styled.input`
-  display: block;
   background: transparent;
   outline: none;
   border: 0;
   border-bottom: 2px solid ${({ theme }) => theme.colors.white};
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.white};
-  width: 100%;
   font-size: 1rem;
 
   :focus {
     border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
+    transition: border-bottom 200ms linear;
   }
 `;
 
 const Label = styled.label`
-  display: block;
   color: ${({ theme }) => theme.colors.white};
   padding: 1rem 0;
 `;
 
 const Select = styled.select`
-  width: 100%;
   background: transparent;
   color: ${({ theme }) => theme.colors.white};
   height: 2rem;
@@ -46,6 +46,7 @@ const Select = styled.select`
 
   :focus {
     border: 1px solid ${({ theme }) => theme.colors.secondary};
+    transition: border 200ms linear;
   }
 `;
 
@@ -57,6 +58,11 @@ const Button = styled.button`
   width: 50%;
   height: 2rem;
   cursor: pointer;
+  
+  :hover {
+    background: #ff9900;
+    transition: background 200ms linear;
+  }
 `;
 
 const UserForm = ({ data }: Props) => {
