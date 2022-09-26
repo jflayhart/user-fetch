@@ -2,7 +2,7 @@ import { FormData } from "../types";
 import styled from "styled-components";
 import { postFormData } from "../services/postFormData";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 type Props = {
   data: FormData;
@@ -58,7 +58,11 @@ const Button = styled.button`
   width: 50%;
   height: 2rem;
   cursor: pointer;
-  
+
+  :disabled {
+    opacity: 0.4;
+  }
+
   :hover {
     background: #ff9900;
     transition: background 200ms linear;
@@ -66,10 +70,12 @@ const Button = styled.button`
 `;
 
 const UserForm = ({ data }: Props) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const handleSubmit = useCallback(
     (e: any) => {
       e.preventDefault();
+      setIsSubmitting(true);
       const { name, email, password, states, occupations } = e.target.elements;
       const payload = {
         name: name.value,
@@ -80,6 +86,7 @@ const UserForm = ({ data }: Props) => {
       };
 
       postFormData(payload).then((res) => {
+        setIsSubmitting(false);
         if (res.ok) router.push(`/welcome?name=${payload.name}`);
       });
     },
@@ -125,7 +132,9 @@ const UserForm = ({ data }: Props) => {
         ))}
       </datalist>
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit" disabled={isSubmitting}>
+        Submit
+      </Button>
     </Form>
   );
 };
