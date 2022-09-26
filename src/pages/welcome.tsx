@@ -4,12 +4,17 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 // @ts-ignore this is valid
 import ConfettiGenerator from "confetti-js";
+import styled from "styled-components";
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {},
   };
 };
+
+const TextCenter = styled.div`
+  text-align: center;
+`;
 
 const WelcomePage = () => {
   const { query } = useRouter();
@@ -27,8 +32,10 @@ const WelcomePage = () => {
     <>
       <canvas id="confetti-canvas" style={{ position: "absolute" }} />
       <Layout title={`Welcome, ${name}`} id="welcome">
-        <h2>You did it, {name}!</h2>
-        <p>Thanks for signing up you can close your browser now</p>
+        <TextCenter>
+          <h2>You did it, {name}!</h2>
+          <p>Thanks for signing up you can close your browser now</p>
+        </TextCenter>
       </Layout>
     </>
   );
