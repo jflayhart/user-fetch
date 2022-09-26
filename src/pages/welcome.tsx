@@ -34,7 +34,7 @@ const WelcomePage = () => {
       <Layout title={`Welcome, ${name}`} id="welcome">
         <TextCenter>
           <h2>You did it, {name}!</h2>
-          <p>Thanks for signing up you can close your browser now</p>
+          <p>Thanks for signing up you can now close this window</p>
         </TextCenter>
       </Layout>
     </>
