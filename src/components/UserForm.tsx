@@ -95,7 +95,7 @@ const UserForm = ({ data }: Props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label htmlFor="name">Name</Label>
+      <Label htmlFor="name">Full Name</Label>
       <Input id="name" name="name" type="text" required aria-label="name" />
 
       <Label htmlFor="email">Email</Label>

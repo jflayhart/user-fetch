@@ -6,7 +6,7 @@ This [progressive web app (PWA)](https://web.dev/progressive-web-apps) is the re
 
 https://user-fetch.vercel.app/
 
-Since it is a PWA, you can install it on your computer if you wish.
+> Note: Since it is a PWA, meaning it has an active [service worker](https://developer.chrome.com/docs/workbox/service-worker-overview/), you can install it on your computer if you wish.
 
 ## Run the app locally
 
@@ -29,3 +29,14 @@ To run tests:
 ```bash
 yarn test
 ```
+
+## Appendix
+
+Technologies used:
+
+- [NextJS](https://nextjs.org/)
+- [Service Worker](https://developer.chrome.com/docs/workbox/service-worker-overview/)
+- [SWC](https://swc.rs/)
+- Sharp image optimization
+
+Run a Lighthouse test in Chrome to see app performance!
