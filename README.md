@@ -1,14 +1,16 @@
 # Description
 
-This app is the result of coding challenge https://fetch-hiring.s3.amazonaws.com/frontend.html
+This [progressive web app (PWA)](https://web.dev/progressive-web-apps) is the result of a coding challenge https://fetch-hiring.s3.amazonaws.com/frontend.html
 
 ## View the app
 
 https://user-fetch.vercel.app/
 
+Since it is a PWA, you can install it on your computer if you wish.
+
 ## Run the app locally
 
-Although you can easily view and interact with the app using [the above public link](https://user-fetch.vercel.app/), you can also run the app locally:
+Although you can easily view and interact with the PWA using [the above public link](https://user-fetch.vercel.app/), you can also run the app locally:
 
 ```bash
 yarn install

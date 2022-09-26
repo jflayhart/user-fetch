@@ -9,6 +9,10 @@ module.exports = {
 
   setupFilesAfterEnv: ['./jest.setup.js'],
 
+  transform: {
+    '^.*\\.(t|j)sx?$': ['@swc/jest'],
+  },
+
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
 
